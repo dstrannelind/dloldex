@@ -1,32 +1,41 @@
-team_types = ["fire", "water", "grass", "psychic", "dark"]
-#team_types = ["fire", "water", "electric"]
+#team_types = ["fire", "water", "grass", "psychic", "dark"]
+team_types = ["fire", "water", "grass"]
 
 super_effective_types = []
+vnormal = 0
+vfire = 0
+vwater = 0
+vgrass = 0
+vrock = 0
 
-def check_supereffective(type, super_effective_types):
+def check_supereffective(type, super_effective_types, vnormal, vfire, vwater, vgrass, vrock):
 
     
     if type == "fire":
         super_effective_types.append("grass")
+        vgrass += 1
         super_effective_types.append("bug")
         super_effective_types.append("steel")
         super_effective_types.append("ice")
 
-        return super_effective_types
+        return super_effective_types, vgrass
 
     if type == "water":
         super_effective_types.append("rock")
+        vrock += 1
         super_effective_types.append("ground")
         super_effective_types.append("fire")
+        vfire += 1
 
-        return super_effective_types
+        return super_effective_types, vrock, vfire
 
     if type == "grass":
         super_effective_types.append("water")
+        vwater += 1
         super_effective_types.append("ground")
         super_effective_types.append("rock")
-      
-        return super_effective_types
+        vrock += 1
+        return super_effective_types, vwater, vrock
 
     if type == "electric":
         super_effective_types.append("water")
@@ -127,8 +136,14 @@ def check_supereffective(type, super_effective_types):
 
 
 for types in team_types: 
-   check_supereffective(types, super_effective_types)
+   check_supereffective(types, super_effective_types, vnormal, vfire, vwater, vgrass, vrock)
 
 
 print("Your teams types are: " + str(team_types))
 print("Your team is super effective against: " + str(super_effective_types))
+
+print("Normal: " + str(vnormal))
+print("Fire: " + str(vfire))
+print("Water: " + str(vwater))
+print("Grass: " + str(vgrass))
+print("Rock: " + str(vrock))
