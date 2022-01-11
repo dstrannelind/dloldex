@@ -1,8 +1,10 @@
 team_types = ["fire", "water", "grass", "psychic", "dark"]
+#team_types = ["fire", "water", "electric"]
+
 super_effective_types = []
+
+
 print("Your teams types are: " + str(team_types))
-
-
 
 
 def check_supereffective(type, super_effective_types):
@@ -128,14 +130,18 @@ def check_supereffective(type, super_effective_types):
         return super_effective_types
 
 
-#for types in team_types: 
- #   check_supereffective(types, super_effective_types)
+for types in team_types: 
+   check_supereffective(types, super_effective_types)
+   
 
-check_supereffective(team_types[0], super_effective_types)
-check_supereffective(team_types[1], super_effective_types)
-check_supereffective(team_types[2], super_effective_types)
-check_supereffective(team_types[3], super_effective_types)
 
-print("Your team is super effective against: " + str(check_supereffective(team_types[4], super_effective_types)))
 
-#print("Your team is super effective against: " + str(super_effective_types))
+
+#check_supereffective(team_types[0], super_effective_types)
+#check_supereffective(team_types[1], super_effective_types)
+#check_supereffective(team_types[2], super_effective_types)
+#check_supereffective(team_types[3], super_effective_types)
+
+#print("Your team is super effective against: " + str(check_supereffective(team_types[4], super_effective_types)))
+
+print("Your team is super effective against: " + str(super_effective_types))
